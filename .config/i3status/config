@@ -1,0 +1,38 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 5
+}
+
+order += "wireless wlp2s0"
+order += "memory"
+order += "cpu_usage"
+order += "disk /"
+order += "cpu_temperature 0"
+order += "time"
+
+wireless wlp2s0 {
+        format_up = "%bitrate"
+        format_down = "down"
+}
+
+memory {
+        format = "ram: %percentage_used"
+}
+
+disk "/" {
+        format = "disk: %percentage_used"
+}
+
+cpu_temperature 0 {
+    format = "%degrees °C"
+    max_threshold = 60
+}
+
+cpu_usage {
+    format = "cpu: %usage"
+}
+
+time {
+    format = "%b:%d:%Y-%I:%M %p"
+}
