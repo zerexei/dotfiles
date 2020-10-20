@@ -12,8 +12,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-
-
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdcommenter'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -48,7 +49,7 @@ set backspace=indent,eol,start
 set ruler
 set cursorline
 set number
-set noerrorbells
+set belloff=all
 set hidden
 set mouse=a
 set background=dark
