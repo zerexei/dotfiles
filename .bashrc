@@ -92,12 +92,6 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -151,14 +145,13 @@ txtBlue='\033[0;34m'         # Blue
 txtPurple='\033[0;35m'       # Purple
 txtCyan='\033[0;36m'         # Cyan
 lightBlack='\[\033[1;30m\]'  # light Black
-lightGrey='\033[0;37m'       # Ligth Gray
+lightGrey='\033[1;37m'       # Ligth Gray
 lightRed='\033[0;91m'        # Ligth Red
-lightGreen='\033[0;92m'      # Ligth Green
+lightGreen='\033[1;92m'      # Ligth Green
 lightYellow='\033[0;93m'     # Ligth Yellow
 lightBlue='\033[0;94m'       # Ligth Blue
 lightPurple='\033[0;95m'     # Light Purple
 lightCyan='\033[0;96m'       # Ligth Cyan
-
 
 git_branch ()
 {
@@ -183,48 +176,87 @@ PS1="${PS1}\n ${txtWhite}→ ${lightGreen}"
 # | (_| || || || (_| |\__ \  | (__ | (_) || | | | | || | | | | || (_| || | | || (_| |\__ \
 #  \__,_||_||_| \__,_||___/   \___| \___/ |_| |_| |_||_| |_| |_| \__,_||_| |_| \__,_||___/
 #-----------------------------------------------------------------------------------------
-alias ll="ls -AlhF --group-directories-first --color=auto"
-alias lm="ls -altr"
-alias x="exit"
-alias q="exit"
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
-alias vi="vim"
 
+# SYSTEM
+alias df='df -h'
+alias du='du -h'
+alias free='free -m'
+
+alias 000='chmod -R 000'
+alias 644='chmod -R 644'
+alias 666='chmod -R 666'
+alias 755='chmod -R 755'
+alias 777='chmod -R 777'
+
+
+# FILES
+alias lsdt='ls -ltrh'                   # Date
+alias lsa='ls -lap'                     # Alphabetical
+alias lsf="ls -l | egrep -v '^d'"       # Files only
+alias lsd="ls -l | egrep '^d'"          # Directories only
+alias lsl='ls -AlhF --group-directories-first --color=auto' # Long
+alias lsm='ls -altr'                    # More
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -iv'
+alias tree='tree -CAhF --dirsfirst'     # Directory first
+alias tree='tree -CAFd'                 # Directories only
+
+
+# NAVIGRATION
 alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-
-alias update="sudo pacman -Syu"
-alias clean="sudo pacman -Sc"
-alias vi="vim"
-alias c="code ."
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias projects='cd ~/Documents/projects'
+alias home='cd ~'
 
 
-alias glog="git log"
-alias gstat="git status"
-alias gadd="git add"
-alias gcom="git commit"
-alias gbranch="git branch"
-alias gch="git checkout -b"
-alias gsw="git switch"
-alias gac="git add -A && git commit -m"
-alias gp="git push"
-alias gpull="git pull"
-alias gback="git restore . && git clean -df"
-alias gdiff="git diff"
-alias gmer="git merge"
-alias gcpick="git cherry-pick"
+# ETC
+alias cls='clear'
+alias clrs='clear'
+alias x='exit'
+alias q='exit'
 
-alias lampp="sudo /opt/lampp/lampp"
-alias lsvr="cd /opt/lampp/htdocs"
-alias laravel="composer create-project --prefer-dist laravel/laravel"
-alias pa="php artisan"
-alias pamf="php artisan migrate:fresh"
-alias parl="php artisan route:list -c"
+alias vi='vim'
+alias svi='sudo vi'
+alias svim='sudo vi'
+alias c='code .'
+alias ebrc='vim ~/.bashrc'
+alias evrc='vim ~/.vimrc'
 
+alias update='sudo pacman -Syu'
+alias clean='sudo pacman -Sc'
+
+
+# GIT
+alias ginit='git init -b main'
+alias glog='git log'
+alias gstat='git status'
+alias gadd='git add'
+alias gcom='git commit'
+alias gbch='git branch'
+alias gch='git switch'
+alias gac='git add -A && git commit -m'
+alias gp='git push'
+alias gpull='git pull'
+alias gback='git restore . && git clfean -df'
+alias gdiff='git diff'
+alias gmer='git merge'
+alias gcpick='git cherry-pick'
+
+
+# PHP/LARAVEL
+alias lampp='sudo /opt/lampp/lampp'
+alias lsvr='cd /opt/lampp/htdocs'
+alias clara='composer create-project --prefer-dist laravel/laravel'
+alias pa='php artisan'
+alias pamf='pa migrate:fresh'
+alias parl='pa route:list -c'
+alias pate='pa test'
+alias pat='pa make:test'
+alias patu='pa make:test --unit'
+
+# FUNCTION
 cd () { builtin cd "$@" && ls; }
 mkd() { mkdir -p "$@" && cd "$@"; }
 trash () { gvfs-trash "$@" && ls;  }
