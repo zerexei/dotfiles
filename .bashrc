@@ -1,6 +1,20 @@
 #
 # ~/.bashrc
 #
+# TODO: Clean & improve
+########
+
+
+
+###############################################################################
+#
+# ██╗███╗   ██╗██╗████████╗
+# ██║████╗  ██║██║╚══██╔══╝
+# ██║██╔██╗ ██║██║   ██║   
+# ██║██║╚██╗██║██║   ██║   
+# ██║██║ ╚████║██║   ██║   
+# ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   
+###############################################################################
 
 [[ $- != *i* ]] && return
 
@@ -134,24 +148,14 @@ ex ()
   fi
 }
 
-reset_color='\033[0m'        # Reset color
-txtBlack='\033[0;30m'        # Black
-txtWhite='\033[0;97m'        # White
-txtGrey='\033[0;90m'         # Dark Gray
-txtred='\033[0;31m'          # Red
-txtGreen='\033[0;32m'        # Green
-txtYellow='\033[0;33m'       # Yellow
-txtBlue='\033[0;34m'         # Blue
-txtPurple='\033[0;35m'       # Purple
-txtCyan='\033[0;36m'         # Cyan
-lightBlack='\[\033[1;30m\]'  # light Black
-lightGrey='\033[1;37m'       # Ligth Gray
-lightRed='\033[0;91m'        # Ligth Red
-lightGreen='\033[1;92m'      # Ligth Green
-lightYellow='\033[0;93m'     # Ligth Yellow
-lightBlue='\033[0;94m'       # Ligth Blue
-lightPurple='\033[0;95m'     # Light Purple
-lightCyan='\033[0;96m'       # Ligth Cyan
+darkGrey='\[\033[1;30m\]'     # Grey
+lightGrey='\033[1;92m'        # Grey
+lightRed='\[\033[1;31m\]'     # Red
+lightGreen='\[\033[1;32m\]'   # Green
+lightYellow='\[\033[1;33m\]'  # Yellow
+lightBlue='\[\033[1;34m\]'    # Blue
+lightPurple='\[\033[1;35m\]'  # Purple
+lightCyan='\[\033[1;36m\]'    # Cyan
 
 git_branch ()
 {
@@ -163,19 +167,25 @@ git_branch ()
   echo "($branch)"
 }
 
-PS1='$(if git rev-parse --git-dir > /dev/null 2>&1; then if git diff --quiet 2>/dev/null >&2; then  echo "'${lightGreen}'"; else echo "'${lightRed}'"; fi fi)'
+PS1='$(if git rev-parse --git-dir > /dev/null 2>&1;
+    then if git diff --quiet 2>/dev/null >&2;
+    then  echo "'${lightGreen}'"; else echo "'${lightRed}'";
+    fi fi)'
 PS1+='$(git_branch)'
-PS1="\n${lightBlack}\A ${txtCyan}\u${lightGreen}@${lightBlue}\h ${txtPurple}\W ${PS1}"    
-PS1="${PS1}\n ${txtWhite}→ ${lightGreen}"
+PS1="\n${darkGrey}\A ${lightCyan}\u${lightGreen}@${lightPurple}\h ${lightYellow}\W${PS1}"    
+PS1="${PS1}\n ${txtWhite}→ ${lightGrey}"
 
 
-#         _  _                                                                     _
-#        | |(_)                                                                   | |
-#   __ _ | | _   __ _  ___     ___   ___   _ __ ___   _ __ ___    __ _  _ __    __| | ___
-#  / _` || || | / _` |/ __|   / __| / _ \ | '_ ` _ \ | '_ ` _ \  / _` || '_ \  / _` |/ __|
-# | (_| || || || (_| |\__ \  | (__ | (_) || | | | | || | | | | || (_| || | | || (_| |\__ \
-#  \__,_||_||_| \__,_||___/   \___| \___/ |_| |_| |_||_| |_| |_| \__,_||_| |_| \__,_||___/
-#-----------------------------------------------------------------------------------------
+###############################################################################
+#
+#
+#  █████╗ ██╗     ██╗ █████╗ ███████╗███████╗███████╗
+# ██╔══██╗██║     ██║██╔══██╗██╔════╝██╔════╝██╔════╝
+# ███████║██║     ██║███████║███████╗█████╗  ███████╗
+# ██╔══██║██║     ██║██╔══██║╚════██║██╔══╝  ╚════██║
+# ██║  ██║███████╗██║██║  ██║███████║███████╗███████║
+# ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+###############################################################################                                                   
 
 # SYSTEM
 alias df='df -h'
@@ -207,7 +217,7 @@ alias tree='tree -CAFd'                 # Directories only
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias projects='cd ~/Documents/projects'
+alias repo='cd ~/Documents/projects'
 alias home='cd ~'
 
 
@@ -218,8 +228,8 @@ alias x='exit'
 alias q='exit'
 
 alias vi='vim'
-alias svi='sudo vi'
-alias svim='sudo vi'
+alias svi='sudo vim'
+alias svim='sudo vim'
 alias c='code .'
 alias ebrc='vim ~/.bashrc'
 alias evrc='vim ~/.vimrc'
@@ -239,7 +249,7 @@ alias gch='git switch'
 alias gac='git add -A && git commit -m'
 alias gp='git push'
 alias gpull='git pull'
-alias gback='git restore . && git clfean -df'
+alias gback='git restore . && git clean -df'
 alias gdiff='git diff'
 alias gmer='git merge'
 alias gcpick='git cherry-pick'
@@ -256,7 +266,20 @@ alias pate='pa test'
 alias pat='pa make:test'
 alias patu='pa make:test --unit'
 
-# FUNCTION
+
+
+###############################################################################                                                   
+#
+# ███████╗██╗   ██╗███╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
+# ██╔════╝██║   ██║████╗  ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+# █████╗  ██║   ██║██╔██╗ ██║██║        ██║   ██║██║   ██║██╔██╗ ██║███████╗
+# ██╔══╝  ██║   ██║██║╚██╗██║██║        ██║   ██║██║   ██║██║╚██╗██║╚════██║
+# ██║     ╚██████╔╝██║ ╚████║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║███████║
+# ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+###############################################################################                                                   
+                                                                          
+
+
 cd () { builtin cd "$@" && ls; }
 mkd() { mkdir -p "$@" && cd "$@"; }
 trash () { gvfs-trash "$@" && ls;  }
