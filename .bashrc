@@ -49,8 +49,6 @@ colors() {
 
 # Change the window title of X terminals
 case ${TERM} in
-
-	
 	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
 		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
 		;;
@@ -105,6 +103,12 @@ else
 fi
 
 unset use_color safe_term match_lhs sh
+
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias np='nano -w PKGBUILD'
+alias more=less
 
 xhost +local:root > /dev/null 2>&1
 
