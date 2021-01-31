@@ -1,0 +1,7 @@
+# NAVIGRATION
+alias ..="cd .."
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias repo="cd ~/projects/repo"
+alias proj="cd ~/projects"
+alias home="cd ~"

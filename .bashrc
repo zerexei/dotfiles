@@ -10,10 +10,10 @@
 #
 # ██╗███╗   ██╗██╗████████╗
 # ██║████╗  ██║██║╚══██╔══╝
-# ██║██╔██╗ ██║██║   ██║   
-# ██║██║╚██╗██║██║   ██║   
-# ██║██║ ╚████║██║   ██║   
-# ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   
+# ██║██╔██╗ ██║██║   ██║
+# ██║██║╚██╗██║██║   ██║
+# ██║██║ ╚████║██║   ██║
+# ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝
 ###############################################################################
 
 [[ $- != *i* ]] && return
@@ -151,33 +151,7 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-darkGrey='\[\033[1;30m\]'     # Grey
-lightGrey='\033[1;92m'        # Grey
-lightRed='\[\033[1;31m\]'     # Red
-lightGreen='\[\033[1;32m\]'   # Green
-lightYellow='\[\033[1;33m\]'  # Yellow
-lightBlue='\[\033[1;34m\]'    # Blue
-lightPurple='\[\033[1;35m\]'  # Purple
-lightCyan='\[\033[1;36m\]'    # Cyan
-
-git_branch ()
-{
-  if ! git rev-parse --git-dir > /dev/null 2>&1; then
-    return 0
-  fi
-
-  branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
-  echo "($branch)"
-}
-
-PS1='$(if git rev-parse --git-dir > /dev/null 2>&1;
-    then if git diff --quiet 2>/dev/null >&2;
-    then  echo "'${lightGreen}'"; else echo "'${lightRed}'";
-    fi fi)'
-PS1+='$(git_branch)'
-PS1="\n${darkGrey}\A ${lightCyan}\u${lightGreen}@${lightPurple}\h ${lightYellow}\W${PS1}"    
-PS1="${PS1}\n ${txtWhite}→ ${lightGrey}"
+source .config/bashrc/ui/ps1
 
 
 ###############################################################################
@@ -189,90 +163,31 @@ PS1="${PS1}\n ${txtWhite}→ ${lightGrey}"
 # ██╔══██║██║     ██║██╔══██║╚════██║██╔══╝  ╚════██║
 # ██║  ██║███████╗██║██║  ██║███████║███████╗███████║
 # ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
-###############################################################################                                                   
+###############################################################################
 
-# SYSTEM
-alias df='df -h'
-alias du='du -h'
-alias free='free -m'
-
-alias 000='chmod -R 000'
-alias 644='chmod -R 644'
-alias 666='chmod -R 666'
-alias 755='chmod -R 755'
-alias 777='chmod -R 777'
-
-
-# FILES
-alias lsdt='ls -ltrh'                   # Date
-alias lsa='ls -lap'                     # Alphabetical
-alias lsf="ls -l | egrep -v '^d'"       # Files only
-alias lsd="ls -l | egrep '^d'"          # Directories only
-alias lsl='ls -AlhF --group-directories-first --color=auto' # Long
-alias lsm='ls -altr'                    # More
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -iv'
-alias tree='tree -CAhF --dirsfirst'     # Directory first
-alias tree='tree -CAFd'                 # Directories only
-
-
-# NAVIGRATION
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias repo='cd ~/Documents/projects'
-alias home='cd ~'
-
-
-# ETC
-alias cls='clear'
-alias clrs='clear'
-alias x='exit'
-alias q='exit'
 
 alias vi='vim'
 alias svi='sudo vim'
 alias svim='sudo vim'
-alias c='code .'
 alias ebrc='vim ~/.bashrc'
 alias evrc='vim ~/.vimrc'
+alias c='code .'
 
 alias update='sudo pacman -Syu'
 alias clean='sudo pacman -Sc'
 
+# system aliases
+source ~/.config/bashrc/aliases/base
+source ~/.config/bashrc/aliases/navigation
+source ~/.config/bashrc/aliases/search
 
-# GIT
-alias ginit='git init -b main'
-alias glog='git log'
-alias gstat='git status'
-alias gadd='git add'
-alias gcom='git commit'
-alias gbch='git branch'
-alias gch='git switch'
-alias gac='git add -A && git commit -m'
-alias gp='git push'
-alias gpull='git pull'
-alias gback='git restore . && git clean -df'
-alias gdiff='git diff'
-alias gmer='git merge'
-alias gcpick='git cherry-pick'
+# apps aliases
+source ~/.config/bashrc/aliases/git
+source ~/.config/bashrc/aliases/npm
+source ~/.config/bashrc/aliases/laravel
 
 
-# PHP/LARAVEL
-alias lampp='sudo /opt/lampp/lampp'
-alias lsvr='cd /opt/lampp/htdocs'
-alias clara='composer create-project --prefer-dist laravel/laravel'
-alias pa='php artisan'
-alias pamf='pa migrate:fresh'
-alias parl='pa route:list -c'
-alias pate='pa test'
-alias pat='pa make:test'
-alias patu='pa make:test --unit'
-
-
-
-###############################################################################                                                   
+###############################################################################
 #
 # ███████╗██╗   ██╗███╗   ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
 # ██╔════╝██║   ██║████╗  ██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
@@ -280,10 +195,4 @@ alias patu='pa make:test --unit'
 # ██╔══╝  ██║   ██║██║╚██╗██║██║        ██║   ██║██║   ██║██║╚██╗██║╚════██║
 # ██║     ╚██████╔╝██║ ╚████║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║███████║
 # ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
-###############################################################################                                                   
-                                                                          
-
-
-cd () { builtin cd "$@" && ls; }
-mkd() { mkdir -p "$@" && cd "$@"; }
-trash () { gvfs-trash "$@" && ls;  }
+###############################################################################

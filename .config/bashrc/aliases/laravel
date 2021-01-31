@@ -1,0 +1,53 @@
+# Compser
+alias com="composer"
+alias comda="composer dump-autoload -o"
+alias comi="composer install"
+alias comu="composer update"
+alias coml="composer create-project --prefer-dist laravel/laravel"
+
+# Base
+alias ar="php artisan"
+alias ars="php artisan serve"
+alias art="php artisan tinker"
+
+# Database
+alias armf="php artisan migrate:fresh"
+alias armfs="php artisan migrate:fresh --seed"
+alias armi="php artisan migrate:install"
+alias armr="php artisan migrate:rollback"
+alias arms="php artisan migrate:status"
+
+# Route
+alias arrl="php artisan route:list -c"
+
+# Test
+alias artest="php artisan test"
+alias armtest="php artisan make:test"
+alias artmutest="php artisan make:test --unit"
+
+# make
+alias armk="php artisan make:@1"
+
+
+# Functions
+aroptimize() {
+    # optimize everything
+}
+
+arcache() {
+    # cache everything
+}
+
+ardump() {
+    php artisan clear-compiled
+    composer dump-autoload -o
+    php artisan optimize
+}
+
+arprod() {
+    # setup for production
+}
+
+ardev() {
+    # setup for development
+}
