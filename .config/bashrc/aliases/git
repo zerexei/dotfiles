@@ -1,14 +1,32 @@
-alias ginit="git init -b main"
-alias glog="git log"
-alias gstat="git status"
-alias gadd="git add"
-alias gcom="git commit"
-alias gbch="git branch"
-alias gch="git switch"
-alias gac="git add -A && git commit -m"
-alias gp="git push"
-alias gpull="git pull"
-alias gback="git restore . && git clean -df"
-alias gdiff="git diff"
-alias gmer="git merge"
-alias gcpick="git cherry-pick"
+# Base
+alias gi='git init -b main'
+alias ga='git add'
+alias gc='git commit --short -m'
+alias gg='git push'
+alias ggg='git pull'
+alias gf='git fetch'
+alias gmf='git merge FETCH_HEAD'
+alias nahh='git restore . && git clean -df'
+
+# Info
+alias gs='git status -sb'
+alias gd='git diff'
+alias gl='git log --pretty=format:"%C(yellow)%h | %ad%Cred%d => %Creset%s%Cblue -> [%cn]" --decorate --date=short'
+
+# Remote
+alias grao='git remote add origin'
+
+# Commits
+alias wip='git add -A && git commit -m "wip"'
+alias gac='git add -A && git commit -m'
+alias gca='git commit --short --amend -m'
+alias gcb='git reset --soft HEAD~1' # uncommit the latest commit
+
+# Branch
+alias gb='git branch'
+alias gsw='git switch'
+alias gm='git merge'
+
+alias clean-merged = 'git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
+
+alias gcp='git cherry-pick'
