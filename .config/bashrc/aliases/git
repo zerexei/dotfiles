@@ -6,7 +6,11 @@ alias gg='git push'
 alias ggg='git pull'
 alias gf='git fetch'
 alias gmf='git merge FETCH_HEAD'
+
+# time travel
 alias nahh='git restore . && git clean -df'
+alias ggb='git push -f origin HEAD^:master' # undo recent git push
+alias gcb='git reset --soft HEAD~1' # uncommit the latest commit
 
 # Info
 alias gs='git status -sb'
@@ -21,7 +25,6 @@ alias grao='git remote add origin'
 alias wip='git add -A && git commit -m "wip"'
 alias gac='git add -A && git commit -m'
 alias gca='git commit --short --amend -m'
-alias gcb='git reset --soft HEAD~1' # uncommit the latest commit
 
 # Branch
 alias gb='git branch'
