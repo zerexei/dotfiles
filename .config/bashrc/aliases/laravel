@@ -31,7 +31,6 @@ alias armk="php artisan make:@1"
 
 # Functions
 aroptimize() {
-    # this is a test
     # optimize everything
 }
 
