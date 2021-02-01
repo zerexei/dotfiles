@@ -1,3 +1,10 @@
+alias vi='vim'
+alias svi='sudo vim'
+alias svim='sudo vim'
+alias ebrc='vim ~/.bashrc'
+alias evrc='vim ~/.vimrc'
+alias c='code .'
+
 alias df='df -h'
 alias du='du -h'
 alias free='free -m'

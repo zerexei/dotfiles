@@ -28,6 +28,5 @@ alias gb='git branch'
 alias gsw='git switch'
 alias gm='git merge'
 
-alias clean-merged = 'git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
-
 alias gcp='git cherry-pick'
+alias clean-merged = 'git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'

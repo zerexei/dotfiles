@@ -1,14 +1,14 @@
 # Base
-alias n="npm"
-alias ni="npm install"
-alias nig="npm install -g"
-alias nu="npm update"
+alias n='npm'
+alias ni='npm install'
+alias nig='npm install -g'
+alias nu='npm update'
 
 # npm run
-alias nrs="npm run serve"
-alias nrw="npm run watch"
-alias nrd="npm run dev"
-alias nrp="npm run production"
+alias nrs='npm run serve'
+alias nrw='npm run watch'
+alias nrd='npm run dev'
+alias nrp='npm run production'
 
 # Funtions
 niw() {
