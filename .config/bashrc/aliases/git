@@ -36,3 +36,10 @@ alias gm='git merge'
 
 alias gcp='git cherry-pick'
 alias clean-merged = 'git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
+
+# create a clean branch
+gfb() {
+  git checkout --orphan $1
+  git reset
+  git clean -df
+}
