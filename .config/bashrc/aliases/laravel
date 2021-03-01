@@ -11,25 +11,22 @@ alias ars='php artisan serve'
 alias art='php artisan tinker'
 
 # Database
+alias armi='php artisan migrate:install'
 alias armf='php artisan migrate:fresh'
 alias armfs='php artisan migrate:fresh --seed'
-alias armi='php artisan migrate:install'
 alias armr='php artisan migrate:rollback'
 alias arms='php artisan migrate:status'
 
 # Route
 alias arrl='php artisan route:list -c'
 
-# Test
-alias artest='php artisan test'
-alias armtest='php artisan make:test'
-alias artmutest='php artisan make:test --unit'
-
-# make
-alias armk='php artisan make:@1'
-
 
 # Functions
+arm() {
+    # artisan make command
+    php artisan make:$1 $2
+}
+
 aroptimize() {
     # optimize everything
 }
