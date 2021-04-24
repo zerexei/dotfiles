@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ls
 alias lsa='ls -Alp --color'
 alias lst='ls -Alptr --color'

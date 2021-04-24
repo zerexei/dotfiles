@@ -1,8 +1,12 @@
+#!/bin/bash
+
 # NAVIGRATION
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 
-alias repo='cd ~/projects/repo'
-alias proj='cd ~/projects'
 alias home='cd ~'
+
+alias proj='cd ~/projects'
+alias repo='cd ~/projects/repo'
+alias fork='cd ~/projects/forked'

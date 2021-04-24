@@ -1,8 +1,10 @@
+#!/bin/bash
+
 # Compser
 alias com='composer'
-alias comda='composer dump-autoload -o'
 alias comi='composer install'
 alias comu='composer update'
+alias comda='composer dump-autoload -o'
 alias coml='composer create-project --prefer-dist laravel/laravel'
 
 # Base
@@ -11,7 +13,8 @@ alias ars='php artisan serve'
 alias art='php artisan tinker'
 
 # Database
-alias armi='php artisan migrate:install'
+alias armi='php artisan migrate'
+alias armin='php artisan migrate:install'
 alias armf='php artisan migrate:fresh'
 alias armfs='php artisan migrate:fresh --seed'
 alias armr='php artisan migrate:rollback'
@@ -41,10 +44,9 @@ ardump() {
     php artisan optimize
 }
 
-arprod() {
-    # setup for production
-}
-
 ardev() {
-    # setup for development
+    # setup for development env
+}
+arprod() {
+    # setup for production env
 }
