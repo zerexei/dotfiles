@@ -6,6 +6,8 @@ mkdir -p "$HOME/.backup"
 # loop through files
 for f in *; do
 
+  # TODO:  implement: if [[ "$INT" =~ ^-?[0-9]+$ ]]; then | syntax: string =~ regex
+  # TODO: validate, this should be not mark down
   # check if it's a markdown
   if [ "${f##*.md}" ]; then
 
