@@ -29,9 +29,9 @@ alias svi='sudo vim'
 alias svim='sudo vim'
 alias ebrc='vim ~/.bashrc'
 alias evrc='vim ~/.vimrc'
-alias c='code .'
+alias c='code'
 
 # functions
 cd() { cd $1 && ls; }
 mkcd() { mkdir $1 && cd $1; }
-trash () { gvfs-trash "$@" && ls;  }
+trash() { gvfs-trash "$@" && ls; }

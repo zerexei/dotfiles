@@ -14,7 +14,6 @@ Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 
 
-
 " SETTINGS ---------------------------
 
 "" APPEARANCE
@@ -49,6 +48,8 @@ set mouse=a
 set nobackup
 set history=1000
 set belloff=all
+
+
 " MAPPING -------------------------------
 
 "" split window
@@ -57,18 +58,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"" newline
-nnoremap o o<esc>
-nnoremap O O<esc>
-
-
-
 
 " PLUGINS CONFIG -----------------------
 let g:lightline = {
     \ 'colorscheme': 'spaceduck',
     \ }
-
 
 "" rust
 set hidden

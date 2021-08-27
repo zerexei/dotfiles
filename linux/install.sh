@@ -6,9 +6,7 @@ mkdir -p "$HOME/.backup"
 # loop through files
 for f in *; do
 
-  # TODO:  implement: if [[ "$INT" =~ ^-?[0-9]+$ ]]; then | syntax: string =~ regex
-  # TODO: validate, this should be not mark down
-  # check if it's a markdown
+  # ignore .md
   if [ "${f##*.md}" ]; then
 
     # check if it's a dir
@@ -20,19 +18,21 @@ for f in *; do
 
       # create a dir, sometimes dir doesn't exists
       mkdir -p "$HOME/$f"
+
       echo "----> SYMLINKING $f"
 
       # symlink all files inside dir
       ln -s "$PWD/$f/"* "$HOME/$f/"
 
-    # if not it's not a dir
+    # if it's not a dir
     else
       echo "----> BACKING UP $f to $HOME/.backup/$f"
 
       # move files to backup dir
       mv "$HOME/$f" "$HOME/.backup/$f" 2>/dev/null
+
       echo "----> SYMLINKING $f"
-      
+
       # symlink file
       ln -s "$PWD/$f" "$HOME/"
     fi

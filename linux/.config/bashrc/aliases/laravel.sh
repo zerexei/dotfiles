@@ -23,10 +23,10 @@ alias arms='php artisan migrate:status'
 # Route
 alias arrl='php artisan route:list -c'
 
-
 # Functions
+
+# excute artisan make command
 arm() {
-    # artisan make command
     php artisan make:$1 $2
 }
 
@@ -38,6 +38,7 @@ arcache() {
     # cache everything
 }
 
+#
 ardump() {
     php artisan clear-compiled
     composer dump-autoload -o

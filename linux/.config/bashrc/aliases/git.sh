@@ -17,7 +17,7 @@ alias gcb='git reset --soft HEAD~1' # uncommit recent git commit
 
 # Info
 alias gs='git status -sb'
-alias gd='git diff'
+alias grf='git reflog'
 alias gl='git log --pretty=format:"%C(yellow)%h %C(green)%d => %C(white)%s %C(italic dim white)-> [%cn] %C(cyan)- %cr"'
 alias gll='git log --pretty=format:"%C(yellow)%h | %cs %C(green)%d => %C(white)%s %C(italic dim white)-> [%cn]"'
 
@@ -32,7 +32,8 @@ alias grd='gir remote remove'
 # Commits
 alias wip='git add -A && git commit -m ":zap: wip"'
 alias gac='git add -A && git commit -m'
-alias gca='git commit --amend -m'
+alias gca='git commit --amend'
+alias gcaa='git commit --amend --no-edit'
 
 # Branch
 alias gb='git branch'
@@ -63,4 +64,15 @@ gfb() {
 gghh() {
   git pull
   git diff
+}
+
+# push w/ custom commit msg
+gacp() {
+  git add -A
+  git commit -m $1
+  git push
+}
+
+function gd() {
+  git diff --color $1  | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r
 }

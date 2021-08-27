@@ -34,6 +34,8 @@ alias yrb='yarn run build'
 alias yrp='yarn run production'
 
 # Funtions
+
+# npm install & watch
 niw() {
     npm install
     npm run wath
