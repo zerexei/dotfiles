@@ -38,7 +38,7 @@ arcache() {
     # cache everything
 }
 
-#
+# refresh laravel compiled
 ardump() {
     php artisan clear-compiled
     composer dump-autoload -o
