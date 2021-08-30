@@ -44,7 +44,7 @@ alias gm='git merge --stat'
 
 # etc
 alias gcp='git cherry-pick'
-alias clean-merged = 'git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
+alias clean-merged='git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
 
 # add all -> commit -> push
 wipp() {
