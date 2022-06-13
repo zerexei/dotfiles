@@ -1,4 +1,6 @@
+###############################################r
 # BASE
+###############################################
 
 # permissions
 alias 000='chmod -R 000'
@@ -34,89 +36,131 @@ alias q='exit'
 alias c="code"
 alias repo='cd z:projects'
 
+###############################################
 # GIT
+###############################################
 alias gi='git init -b main'
-alias gr='git remote'
 alias ga='git add'
 alias gc='git commit'
 alias gg='git push'
 alias ggg='git pull'
 
-# info
-alias gs='git status -sb'
-alias grf='git reflog'
-alias gl='git log --pretty=format:"%C(yellow)%h %C(green)%d => %C(white)%s %C(italic dim white)-> [%cn] %C(cyan)- %cr"'
-
-# commit
-alias gac='git add -A && git commit -m'
-alias gca='git commit --amend'
-alias gcaa='git commit --amend --no-edit'
-alias wip='git add -A && git commit -m ":zap: wip"'
-alias wipp='git add -A && git commit -m ":zap: wip" && git push'
-
-# branch
-alias gb='git branch'
-alias gsw='git switch'
-alias gm='git merge'
+alias gf='git fetch'
+alias gmf='git merge FETCH_HEAD'
 
 # time travel
 alias nahh='git restore . && git clean -df'
 alias ggb='git push -f origin HEAD^:master' # undo recent git push
-alias gcb='git reset --soft HEAD~1'         # uncommit the latest commit
+alias gcb='git reset --soft HEAD~1'         # uncommit recent git commit
 
-# create a fresh branch
-gfb() {
-	git checkout --orphan $1
-	git reset
-	git clean -df
-}
+# Info
+alias gs='git status -sb'
+alias grf='git reflog'
+alias gl='git log --pretty=format:"%C(yellow)%h %C(green)%d => %C(white)%s %C(italic dim white)-> [%cn] %C(cyan)- %cr"'
+alias gll='git log --pretty=format:"%C(yellow)%h | %cs %C(green)%d => %C(white)%s %C(italic dim white)-> [%cn]"'
 
-# pull and diff
-gghh() {
-	git pull
-	git diff
-}
+# git log with branch visual
+alias gbl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n' --all"
 
-# push w/ custom commit
-gacp() {
-	git add -A
-	git commit -m $1
-	git push
-}
+# Remote
+alias gr='git remote'
+alias gra='git remote add'
+alias grd='gir remote remove'
 
-# remove +/- on git diff
-function gd() {
-	git diff --color $1 | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r
-}
+# Commits
+alias wip='git add -A && git commit -m ":zap: wip"'
+alias gac='git add -A && git commit -m'
+alias gca='git commit --amend'
+alias gcaa='git commit --amend --no-edit'
 
+# Branch
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gbm='git branch -m'
+alias gsw='git switch'
+alias gm='git merge --stat'
+
+# etc
+alias gcp='git cherry-pick'
+alias clean-merged='git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
+
+# package manager
+alias npmr="npm run"
+alias yarnr='yarn run'
+
+###############################################
 # LARAVEL
-alias ar="php artisan"
-alias ars="php artisan serve"
-alias art="php artisan tinker"
-alias artt="php artisan test"
-alias arttf="php artisan test --filter"
-alias armf="php artisan migrate:fresh"
-alias armfs="php artisan migrate:fresh --seed"
+###############################################
+
+# Compser
+alias comp='composer'
+# alias compi='composer install'
+# alias compu='composer update'
+alias compda='composer dump-autoload -o'
+alias complaravel='composer create-project --prefer-dist laravel/laravel'
+
+# Base
+alias ar='php artisan'
+alias ars='php artisan serve'
+alias art='php artisan tinker'
+
+# Database
+alias armi='php artisan migrate'
+alias armin='php artisan migrate:install'
+alias armf='php artisan migrate:fresh'
+alias armfs='php artisan migrate:fresh --seed'
 alias armr='php artisan migrate:rollback'
-alias arrl='php artisan route:list -c'
+alias arms='php artisan migrate:status'
+
+# Route
+alias arr='php artisan route:list'
+
+# Functions
 
 # excute artisan make command
 arm() {
-	php artisan make:$1 $2
+    php artisan make:$1 $2
 }
 
-# YARN
-alias y='yarn'
-alias yi='yarn install'
-alias ya='yarn add'
-alias yad='yarn add -D'
-alias yau='yarn audit'
-alias yauf='yarn audit fix'
+# refresh laravel compiled
+ardump() {
+    php artisan clear-compiled
+    composer dump-autoload -o
+    php artisan optimize
+}
 
-# yarn script
-alias yrs='yarn run serve'
-alias yrw='yarn run watch'
-alias yrt='yarn run test'
-alias yrd='yarn run dev'
-alias yrb='yarn run build'
-alias yrp='yarn run production'
+ardev() {
+    # setup for development env
+}
+arprod() {
+    # setup for production env
+}
+
+# add all -> commit -> push
+wip() {
+    git add -A
+    git commit -m ":zap: wip"
+}
+
+# # create a clean branch
+# gfb() {
+#   git checkout --orphan $1
+#   git reset
+#   git clean -df
+# }
+
+# good game, happy hacking ;)
+gghh() {
+    git pull
+    git diff
+}
+
+# push w/ custom commit msg
+gac() {
+    git add -A
+    git commit -m "$1"
+}
+
+gd() {
+    git diff --color $1 | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r
+}
