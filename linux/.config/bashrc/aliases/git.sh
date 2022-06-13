@@ -13,7 +13,7 @@ alias gmf='git merge FETCH_HEAD'
 # time travel
 alias nahh='git restore . && git clean -df'
 alias ggb='git push -f origin HEAD^:master' # undo recent git push
-alias gcb='git reset --soft HEAD~1' # uncommit recent git commit
+alias gcb='git reset --soft HEAD~1'         # uncommit recent git commit
 
 # Info
 alias gs='git status -sb'
@@ -47,18 +47,17 @@ alias gcp='git cherry-pick'
 alias clean-merged='git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d'
 
 # add all -> commit -> push
-wipp() {
+wip() {
   git add -A
   git commit -m ":zap: wip"
-  git push
 }
 
-# create a clean branch
-gfb() {
-  git checkout --orphan $1
-  git reset
-  git clean -df
-}
+# # create a clean branch
+# gfb() {
+#   git checkout --orphan $1
+#   git reset
+#   git clean -df
+# }
 
 # good game, happy hacking ;)
 gghh() {
@@ -67,12 +66,11 @@ gghh() {
 }
 
 # push w/ custom commit msg
-gacp() {
+gac() {
   git add -A
-  git commit -m $1
-  git push
+  git commit -m "$1"
 }
 
-function gd() {
-  git diff --color $1  | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r
+gd() {
+  git diff --color $1 | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r
 }

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Compser
-alias com='composer'
-alias comi='composer install'
-alias comu='composer update'
-alias comda='composer dump-autoload -o'
-alias coml='composer create-project --prefer-dist laravel/laravel'
+alias comp='composer'
+# alias compi='composer install'
+# alias compu='composer update'
+alias compda='composer dump-autoload -o'
+alias complaravel='composer create-project --prefer-dist laravel/laravel'
 
 # Base
 alias ar='php artisan'
@@ -21,7 +21,7 @@ alias armr='php artisan migrate:rollback'
 alias arms='php artisan migrate:status'
 
 # Route
-alias arrl='php artisan route:list -c'
+alias arr='php artisan route:list'
 
 # Functions
 
