@@ -3,12 +3,10 @@ set nocompatible
 " PLUGINS ----------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'rust-lang/rust.vim'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'racer-rust/vim-racer'
 Plug 'vim-scripts/AutoComplPop'
 
 call plug#end()
@@ -63,9 +61,3 @@ nnoremap <C-H> <C-W><C-H>
 let g:lightline = {
     \ 'colorscheme': 'spaceduck',
     \ }
-
-"" rust
-set hidden
-let g:racer_cmd = "/home/user/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-let g:racer_insert_paren = 1
