@@ -33,9 +33,6 @@ alias clrs='clear'
 alias x='exit'
 alias q='exit'
 
-alias c="code"
-alias repo='cd z:projects'
-
 ###############################################
 # GIT
 ###############################################
@@ -58,6 +55,7 @@ alias gs='git status -sb'
 alias grf='git reflog'
 alias gl='git log --pretty=format:"%C(yellow)%h %C(green)%d => %C(white)%s %C(italic dim white)-> [%cn] %C(cyan)- %cr"'
 alias gll='git log --pretty=format:"%C(yellow)%h | %cs %C(green)%d => %C(white)%s %C(italic dim white)-> [%cn]"'
+alias gllme='git log --pretty=format:"%C(yellow)%h | %cs %C(green)%d => %C(white)%s %C(italic dim white)-> [%cn]" --author="Angelo Arcillas"'
 
 # git log with branch visual
 alias gbl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n' --all"
@@ -115,6 +113,33 @@ alias arms='php artisan migrate:status'
 # Route
 alias arr='php artisan route:list'
 
+###############################################
+# LARAVEL SAILc
+###############################################
+
+# Base
+alias sar='sail artisan'
+alias sars='sail artisan serve'
+alias sart='sail artisan tinker'
+
+# Database
+alias sarmi='sail artisan migrate'
+alias sarmin='sail artisan migrate:install'
+alias sarmf='sail artisan migrate:fresh'
+alias sarmfs='sail artisan migrate:fresh --seed'
+alias sarmr='sail artisan migrate:rollback'
+alias sarms='sail artisan migrate:status'
+
+# Route
+alias sarr='sail artisan route:list'
+
+# NPM
+alias snpmi='sail npm install'
+alias snpmr='sail npm run'
+alias snpmrd='sail npm run dev'
+alias snpmrw='sail npm run build --- --watch'
+alias snpmrb='sail npm run build'
+
 # Functions
 
 # excute artisan make command
@@ -127,13 +152,6 @@ ardump() {
     php artisan clear-compiled
     composer dump-autoload -o
     php artisan optimize
-}
-
-ardev() {
-    # setup for development env
-}
-arprod() {
-    # setup for production env
 }
 
 # add all -> commit -> push
@@ -164,3 +182,13 @@ gac() {
 gd() {
     git diff --color $1 | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r
 }
+
+###############################################
+# PYTHON
+###############################################
+alias py='python3'
+alias pyr='python3 -m'
+
+# update to git-prompt.sh location
+source ~/git-prompt.sh
+export PS1='\[\e[0;37m\]\A \[\e[35m\]\u@\h\[\e[37m\]: \[\e[33m\]\W \[\e[32m\]$(__git_ps1 " (%s)")\[\e[37m\]\n> \[\e[1;32m\]'
