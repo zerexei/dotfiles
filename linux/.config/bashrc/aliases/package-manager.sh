@@ -47,3 +47,6 @@ yiw() {
     yarn
     yarn run watch
 }
+
+# vite
+alias vnpmrw='npm run watch -- --watch'

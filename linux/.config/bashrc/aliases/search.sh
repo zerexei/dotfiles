@@ -10,3 +10,6 @@ alias ls='ls -Ap --color --group-directories-first'
 
 # grep
 alias stxt='grep -Hnri' # search text from a folder??
+
+# filter network by port
+# alias x='netstat -tupln  | grep'
