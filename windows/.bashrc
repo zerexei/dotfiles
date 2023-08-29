@@ -102,7 +102,7 @@ alias npmrw='npm run watch'
 alias npmrb='npm run build'
 
 # vite
-alias vnpmrw='npm run watch -- --watch'
+alias vnpmrw='npm run build -- --watch'
 
 ###############################################
 # LARAVEL
