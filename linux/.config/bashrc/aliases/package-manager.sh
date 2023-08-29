@@ -49,4 +49,4 @@ yiw() {
 }
 
 # vite
-alias vnpmrw='npm run watch -- --watch'
+alias vnpmrw='npm run build -- --watch'
