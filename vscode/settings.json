@@ -1,0 +1,123 @@
+{
+    // ==============================
+    // EDITOR SETTINGS
+    // ==============================
+    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.lineHeight": 28,
+    "editor.lineNumbers": "on",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 100,
+    "editor.renderWhitespace": "none",
+    "editor.matchBrackets": "never",
+    "editor.suggestSelection": "first",
+    "editor.selectionHighlight": true,
+    "editor.overviewRulerBorder": false,
+    "editor.renderLineHighlight": "line",
+    "editor.occurrencesHighlight": "off",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.cursorWidth": 2,
+    "editor.linkedEditing": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.minimap.enabled": false,
+    "editor.accessibilitySupport": "off",
+    "editor.inlayHints.enabled": "on",
+    "editor.guides.indentation": true,
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    // ==============================
+    // EDITOR COLOR CUSTOMIZATIONS
+    // ==============================
+    "editor.tokenColorCustomizations": {
+        "comments": "#6a9955",
+        "keywords": "#569cd6",
+        "functions": "#dcdcaa",
+        "variables": "#9cdcfe"
+    },
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true
+    },
+    // ==============================
+    // WORKBENCH SETTINGS
+    // ==============================
+    "workbench.startupEditor": "none",
+    "workbench.tips.enabled": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 10,
+    "workbench.editor.enablePreview": false,
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.location": "top",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.colorTheme": "Ocean Space",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editor.tabSizing": "shrink",
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.icons": true,
+    // ==============================
+    // FILES SETTINGS
+    // ==============================
+    "files.associations": {
+        "*.prisma": "graphql",
+        "*.jsonc": "json",
+        "*.mdx": "markdown"
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.exclude": {
+        "**/.git": true
+    },
+    // ==============================
+    // EXTENSIONS SETTINGS
+    // ==============================
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "block",
+    "vim.cursorStylePerMode.visual": "block",
+    "vim.cursorStylePerMode.visualblock": "block",
+    "vim.cursorStylePerMode.visualline": "block",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "eslint.run": "onSave",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": true,
+    "window.commandCenter": true,
+    "remote.autoForwardPorts": false,
+    // ==============================
+    // TERMINAL SETTINGS
+    // ==============================
+    "terminal.integrated.fontFamily": "'Iosevka Term', 'Fira Code', 'Courier New', monospace",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.scrollback": 10000,
+    // ==============================
+    // SECURITY SETTINGS
+    // ==============================
+    "security.workspace.trust.enabled": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    // ==============================
+    // WINDOW / MISC SETTINGS
+    // ==============================
+    "window.newWindowProfile": "Default",
+    "window.zoomLevel": 0,
+    // ==============================
+    // LANGUAGE-SPECIFIC OVERRIDES
+    // ==============================
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+}
