@@ -23,18 +23,10 @@ alias clrs='clear'
 alias x='exit'
 alias q='exit'
 
-# text editor
-# alias vi='vim'
-# alias svi='sudo vim'
-# alias svim='sudo vim'
-# alias ebrc='vim ~/.bashrc'
-# alias evrc='vim ~/.vimrc'
-# alias c='code'
-
 alias vi='nvim'
 alias vim='nvim'
 
 # functions
-cd() { cd $1 && ls; }
-mkdircd() { mkdir $1 && cd $1; }
+cd() { builtin cd "$1" && ls; }
+mkdircd() { mkdir -p "$1" && builtin cd "$1"; }
 trash() { gvfs-trash "$@" && ls; }
